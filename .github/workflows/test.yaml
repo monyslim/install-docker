@@ -1,0 +1,16 @@
+name: test
+on:
+  push:
+    branches:
+      - master
+jobs:
+  test:
+    name: tester
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Install Docker
+        uses: ./
+      - name: Check Docker status
+        run: sudo systemctl status docker

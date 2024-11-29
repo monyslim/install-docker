@@ -1,0 +1,21 @@
+name: 'Latest Docker Engine Installation'
+description: 'A GitHub Action to install Docker using official commands'
+author: David
+branding:
+  icon: docker
+  color: blue
+inputs: # Optional, but helps users understand configuration
+  docker_version:
+    description: 'Version of Docker to install (default: latest)'
+    required: false
+    default: 'latest'
+outputs: # Optional, if your action provides any outputs
+  docker_version_installed:
+    description: 'The version of Docker that was installed'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: 'Install Docker'
+      shell: bash
+      run: ./entrypoint.sh
